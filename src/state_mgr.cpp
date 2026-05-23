@@ -157,10 +157,10 @@ void state_update(const uint8_t *data, const uint8_t size) {
 
     for (size_t i = 2; i <= 8; i++) {
         if (state[r_trigger_start + i] > 30) {
-            state[r_trigger_start + i] = static_cast<uint8_t>(state[r_trigger_start + i] * 0.5);
+            state[r_trigger_start + i] = static_cast<uint8_t>(state[r_trigger_start + i] * 0.66);
         }
         if (state[l_trigger_start + i] > 30) {
-            state[l_trigger_start + i] = static_cast<uint8_t>(state[l_trigger_start + i] * 0.5);
+            state[l_trigger_start + i] = static_cast<uint8_t>(state[l_trigger_start + i] * 0.66);
         }
     }
 }
