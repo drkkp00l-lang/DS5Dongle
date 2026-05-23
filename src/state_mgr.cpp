@@ -151,4 +151,12 @@ void state_update(const uint8_t *data, const uint8_t size) {
         offsetof(SetStateData, LedRed),
         sizeof(update.LedRed) * 3
     );
+
+    size_t r_trigger_start = offsetof(SetStateData, RightTriggerFFB);
+    size_t l_trigger_start = offsetof(SetStateData, LeftTriggerFFB);
+
+    for (size_t i = 2; i <= 8; i++) {
+        state[r_trigger_start + i] = static_cast<uint8_t>(state[r_trigger_start + i] * 0.5);
+        state[l_trigger_start + i] = static_cast<uint8_t>(state[l_trigger_start + i] * 0.5);
+    }
 }
